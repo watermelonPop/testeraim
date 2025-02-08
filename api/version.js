@@ -1,6 +1,7 @@
+require('dotenv').config();
 const { neon } = require('@neondatabase/serverless');
 
-const sql = neon(`postgresql://neondb_owner:npg_rKLNfH4l5paD@ep-withered-sea-a89azn47-pooler.eastus2.azure.neon.tech/neondb?sslmode=require`);
+const sql = neon(`postgresql://${PGUSER}:${PGPASSWORD}@${PGHOST}/${PGDATABASE}?sslmode=require`);
 
 module.exports = async (req, res) => {
   if (req.method === 'GET') {
